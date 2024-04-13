@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Song Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #zone1 {
+            width: 100%;
+            height: 50px;
+            background-color: purple;
+            color: white;
+            border: 2px solid red;
+            text-align: center;
+            padding: 10px;
+        }
+
+        #zone2 {
+            width: 45%;
+            float: left;
+        }
+
+        #zone3 {
+            width: 45%;
+            float: right;
+            text-align: center;
+        }
+
+        #zone4 {
+            clear: both;
+            text-align: center;
+        }
+
+        select {
+            width: 100%;
+            padding: 5px;
+            margin-top: 10px;
+        }
+
+        button {
+            display: block;
+            width: 50%;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+  <div id="zone1" class="zone">
+    <label for="songList">To select a song to play:</label>
+  </div>
+
+  <div id="zone2" class="zone">
+    <select id="songList">
+ <option value="http://www.fookwing.com/download/songs/%E6%8A%8A%E6%82%B2%E4%BC%A4%E7%95%99%E7%BB%99%E8%87%AA%E5%B7%B1.mp3">把悲伤留给自己.mp3</option>
+      <option value="http://www.fookwing.com/download/songs/%E5%BE%AE%E9%A2%A8%E7%B4%B0%E9%9B%A8.mp3">微風細雨.mp3</option>
+      <option value="http://www.fookwing.com/download/songs/%E7%BB%99%E7%88%B1%E5%BE%B7%E7%90%B3%E8%AF%97.mp3">给爱德琳诗.mp3</option>
+      <option value="http://www.fookwing.com/download/songs/%E7%BB%99%E7%88%B1%E4%B8%BD%E4%B8%9D%E7%90%86%E6%9F%A5%E5%BE%B7.mp3">给爱丽丝理查德.mp3</option>
+      <option value="http://www.fookwing.com/download/songs/Yesterday%20Once%20More.mp3">Yesterday Once More.mp3</option>
+      <option value="http://www.fookwing.com/download/songs/Sound%20Of%20Silence.mp3">Sound Of Silence.mp3</option>
+      <option value="http://www.fookwing.com/download/songs/%E6%9F%94%E9%81%93%E9%BE%8D%E8%99%8E%E6%A6%9C.mp3">柔道龍虎榜.mp3</option>
+      <option value="http://www.fookwing.com/download/songs/8Sine5min.mp3">8Sine5min.mp3</option>
+  
+    </select>
+  </div>
+
+  <div id="zone3" class="zone">
+    <button id="playButton">Play Selected Song</button>
+  </div>
+
+  <div id="zone4" class="zone">
+    <textarea id="songTextArea" readonly></textarea>
+  </div>
+
+  <script>
+    document.getElementById('playButton').addEventListener('click', function () {
+      var songList = document.getElementById('songList');
+      var selectedSong = songList.options[songList.selectedIndex];
+      var songName = selectedSong.text;
+      var songLink = selectedSong.value;
+
+      var songTextArea = document.getElementById('songTextArea');
+      songTextArea.value = 'Now playing: ' + songName;
+
+      var audio = new Audio(songLink);
+      audio.play();
+    });
+  </script>
+
+</body>
+</html>

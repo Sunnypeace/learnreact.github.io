@@ -1,0 +1,11 @@
+.productBorder{
+    border: 9px solid purple;
+    margin: 20px 0px;
+    background-color: blueviolet;
+  }
+
+  body{
+    font-size: 30px;
+    color: rgb(86, 216, 114);
+    background-color: hsl(240, 28%, 43%);
+  }
